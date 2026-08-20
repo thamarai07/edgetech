@@ -41,7 +41,7 @@ export type Placement = {
 
 async function apiGet<T>(path: string): Promise<T | null> {
   try {
-    const res = await fetch(`${API_URL}${path}`, { cache: "no-store" });
+    const res = await fetch(`${API_URL}${path}`, { cache: "no-store" , credentials : "omit"});
     if (!res.ok) return null;
     return (await res.json()) as T;
   } catch {
@@ -101,6 +101,7 @@ export async function submitEnquiry(payload: {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
+      credentials : "omit"
     });
     return await res.json();
   } catch {
@@ -120,6 +121,7 @@ export async function submitContact(payload: {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
+      credentials: 'omit'
     });
     return await res.json();
   } catch {

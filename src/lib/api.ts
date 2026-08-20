@@ -2,7 +2,9 @@ import type { Course } from "@/components/shared/course-card";
 import coursesData from "@/data/courses.json";
 import testimonialsData from "@/data/testimonials.json";
 
-export const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost/edgetech-backend/api";
+// export const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost/edgetech-backend/api";
+
+export const API_URL = "https://edgetech.infinityfreeapp.com/api";
 
 export type Testimonial = {
   id?: number;

@@ -177,6 +177,65 @@ select:focus-visible {
   box-shadow: 0 0 6px 1px rgba(255, 255, 255, 0.8);
 }
 
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: var(--cell, 56px) var(--cell, 56px);
+  -webkit-mask-image: radial-gradient(ellipse 78% 68% at 50% 32%, black 35%, transparent 92%);
+  mask-image: radial-gradient(ellipse 78% 68% at 50% 32%, black 35%, transparent 92%);
+}
+
+.hero-grid::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(125, 199, 255, 0.9) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(125, 199, 255, 0.9) 1px, transparent 1px);
+  background-size: var(--cell, 56px) var(--cell, 56px);
+  -webkit-mask-image: radial-gradient(circle 180px at var(--mx, -999px) var(--my, -999px), black 0%, transparent 72%);
+  mask-image: radial-gradient(circle 180px at var(--mx, -999px) var(--my, -999px), black 0%, transparent 72%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hero-grid:hover::before {
+  opacity: 1;
+}
+
+.hero-grid::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle 220px at var(--mx, -999px) var(--my, -999px), rgba(125, 199, 255, 0.12), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hero-grid:hover::after {
+  opacity: 1;
+}
+
+/* Light-background variant: dark, low-contrast lines instead of white */
+.hero-grid-light {
+  background-image:
+    linear-gradient(rgba(28, 35, 45, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(28, 35, 45, 0.08) 1px, transparent 1px);
+}
+
+.hero-grid-light::before {
+  background-image:
+    linear-gradient(rgba(37, 99, 235, 0.55) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.55) 1px, transparent 1px);
+}
+
+.hero-grid-light::after {
+  background: radial-gradient(circle 220px at var(--mx, -999px) var(--my, -999px), rgba(37, 99, 235, 0.1), transparent 70%);
+}
+
 @keyframes spin-slow {
   to {
     transform: rotate(360deg);

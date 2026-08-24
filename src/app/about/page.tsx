@@ -5,6 +5,7 @@ import { AboutValues } from "@/components/about/values";
 import { AboutTimeline } from "@/components/about/timeline";
 import { AboutMentors } from "@/components/about/mentors";
 import { WhyChooseUs } from "@/components/about/why-choose-us";
+import { getMentors } from "@/lib/api";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -13,10 +14,13 @@ export const metadata: Metadata = {
   alternates: { canonical: "/about" },
 };
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const mentors = await getMentors();
+
   return (
     <>
       <PageHero
+        dark
         eyebrow="About Edge Tech Solution"
         title="We Built The Program We Wished We Had"
         description="A mentor-led, project-first approach to learning tech — built by people who've hired, been hired, and know exactly what the gap between 'learning to code' and 'getting hired' actually looks like."
@@ -25,7 +29,7 @@ export default function AboutPage() {
       <AboutStory />
       <AboutValues />
       <AboutTimeline />
-      <AboutMentors />
+      <AboutMentors mentors={mentors} />
       <WhyChooseUs />
     </>
   );

@@ -1,6 +1,7 @@
 import type { Course } from "@/components/shared/course-card";
 import coursesData from "@/data/courses.json";
 import testimonialsData from "@/data/testimonials.json";
+import mentorsData from "@/data/mentors.json";
 
 export const API_URL = "https://edgetech.infinityfreeapp.com/api";
 
@@ -12,6 +13,15 @@ export type Testimonial = {
   rating: number;
   image: string;
   quote: string;
+};
+
+export type Mentor = {
+  id?: number;
+  name: string;
+  role: string;
+  company: string;
+  image?: string;
+  linkedinUrl?: string | null;
 };
 
 export type BlogPost = {
@@ -99,6 +109,12 @@ export async function getTestimonials(): Promise<Testimonial[]> {
   );
   if (data?.success && data.testimonials) return data.testimonials;
   return testimonialsData as Testimonial[];
+}
+
+export async function getMentors(): Promise<Mentor[]> {
+  const data = await apiGet<{ success: boolean; mentors: Mentor[] }>("/mentors.php", 1);
+  if (data?.success && data.mentors) return data.mentors;
+  return mentorsData as Mentor[];
 }
 
 export async function getBlogPosts(): Promise<BlogPost[]> {

@@ -7,7 +7,7 @@ import { Counter } from "@/components/shared/counter";
 
 const HIGHLIGHTS = [
   { icon: Building2, value: 200, suffix: "+", label: "Hiring Partners" },
-  { icon: Award, value: 15, suffix: " LPA", label: "Highest Package" },
+  { icon: Award, value: 7, suffix: " LPA", label: "Highest Package" },
   { icon: TrendingUp, value: 95, suffix: "%", label: "Placement Support" },
 ];
 
@@ -33,8 +33,7 @@ export function PlacementCta() {
                 We Don&apos;t Stop Teaching At &ldquo;Course Complete&rdquo;
               </h2>
               <p className="mt-4 text-white/60 max-w-lg">
-                Every student gets resume reviews, mock interviews, and direct introductions to our
-                hiring partners — support that continues until you have an offer in hand.
+                100% Placement Assist.
               </p>
               <Button href="/placements" variant="primary" size="lg" className="mt-8">
                 See Placement Stories <ArrowRight className="size-5" />

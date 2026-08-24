@@ -3,11 +3,10 @@
 import { motion } from "framer-motion";
 
 const MILESTONES = [
-  { year: "2021", title: "Edge Tech Solution Founded", desc: "Started with 2 courses and a small batch of 40 students in Chennai." },
-  { year: "2022", title: "First Placement Partnerships", desc: "Signed our first hiring partnerships and placed our first 200 students." },
-  { year: "2023", title: "Crossed 2,000 Students", desc: "Expanded into Data Science, Cloud, and UI/UX tracks based on hiring demand." },
-  { year: "2024", title: "Launched AI & GenAI Track", desc: "Introduced applied AI courses as industry demand shifted rapidly." },
-  { year: "2025", title: "5,000+ Students Trained", desc: "Reached 200+ hiring partners and an average placement package growth of 40%." },
+  { year: "Phase 01", title: "The Idea", desc: "Founders who'd hired and been hired kept seeing the same gap — course-complete, but not job-ready. We set out to fix that." },
+  { year: "Phase 02", title: "Building The Program", desc: "Curriculum, projects, and a mentor network built from scratch — designed backward from what hiring managers actually screen for." },
+  { year: "Phase 03", title: "First Cohort", desc: "A small, mentor-led batch to pressure-test every project and every review — before we ever tried to scale." },
+  { year: "Today", title: "Growing, Mentor By Mentor", desc: "Every new student and hiring partner shapes the program further. We're early — and building it in the open, one outcome at a time." },
 ];
 
 export function AboutTimeline() {
@@ -19,7 +18,7 @@ export function AboutTimeline() {
             Our Journey
           </span>
           <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-secondary">
-            A Timeline Of Growth, Built On Outcomes
+            Early Days, Built The Right Way
           </h2>
         </div>
 

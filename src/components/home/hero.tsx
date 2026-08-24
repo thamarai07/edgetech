@@ -2,9 +2,10 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, PlayCircle, CalendarCheck, Code2, Sparkles, Trophy } from "lucide-react";
+import { ArrowRight, PlayCircle, CalendarCheck, Code2, Sparkles, Trophy, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Counter } from "@/components/shared/counter";
+import { HeroBackgroundFx } from "@/components/shared/hero-fx";
 import stats from "@/data/stats.json";
 
 const ROLES = ["Full Stack Developers", "Data Scientists", "AI Engineers", "Cloud Engineers", "Product Designers"];
@@ -45,10 +46,18 @@ export function Hero() {
   const typed = useTypewriter(ROLES);
 
   return (
-    <section className="relative overflow-hidden pt-14 pb-20 md:pt-20 md:pb-28">
-      {/* Ambient blobs */}
-      <div className="absolute -top-32 -left-24 size-96 rounded-full bg-primary/10 blur-3xl animate-blob" />
-      <div className="absolute top-40 -right-24 size-96 rounded-full bg-accent/10 blur-3xl animate-blob" style={{ animationDelay: "3s" }} />
+    <section className="hero-gradient relative overflow-hidden pt-14 pb-24 md:pt-24 md:pb-32">
+      <HeroBackgroundFx dustCount={34} />
+
+      {/* Soft ambient glows */}
+      <div className="pointer-events-none absolute -top-32 left-1/4 size-96 rounded-full bg-accent/20 blur-3xl animate-blob" />
+      <div
+        className="pointer-events-none absolute top-24 -right-24 size-96 rounded-full bg-primary/25 blur-3xl animate-blob"
+        style={{ animationDelay: "3s" }}
+      />
+
+      {/* Fade to page background at the bottom edge */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-background" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-14 items-center">
         <div>
@@ -56,9 +65,9 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 rounded-full border border-border-soft bg-white px-4 py-1.5 text-xs font-medium text-secondary shadow-sm"
+            className="glass-dark inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-medium text-white/90 shadow-sm"
           >
-            <Sparkles className="size-3.5 text-primary" />
+            <Sparkles className="size-3.5 text-accent" />
             Admissions open for the next mentor-led batch
           </motion.div>
 
@@ -66,7 +75,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mt-6 text-4xl sm:text-5xl lg:text-[3.4rem] font-bold leading-[1.1] text-secondary"
+            className="mt-6 text-4xl sm:text-5xl lg:text-[3.4rem] font-bold leading-[1.1] text-white"
           >
             Helping You Build A{" "}
             <span className="text-gradient">Successful Career</span> In Tech
@@ -76,17 +85,17 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-3 text-lg text-foreground/60 h-8"
+            className="mt-3 text-lg text-white/70 h-8"
           >
-            We train <span className="text-primary font-semibold">{typed}</span>
-            <span className="inline-block w-0.5 h-5 bg-primary ml-0.5 align-middle animate-pulse" />
+            We train <span className="text-accent font-semibold">{typed}</span>
+            <span className="inline-block w-0.5 h-5 bg-accent ml-0.5 align-middle animate-pulse" />
           </motion.p>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25 }}
-            className="mt-2 text-foreground/60 max-w-lg"
+            className="mt-2 text-white/60 max-w-lg"
           >
             Learn job-ready skills from industry experts — with real mentors, real projects, and
             placement support that stays with you until you&apos;re hired.
@@ -101,10 +110,20 @@ export function Hero() {
             <Button href="/courses" variant="primary" size="lg">
               Explore Courses <ArrowRight className="size-5" />
             </Button>
-            <Button href="/contact" variant="outline" size="lg">
+            <Button
+              href="/contact"
+              variant="outline"
+              size="lg"
+              className="border-white/30 text-white hover:bg-white/10 hover:text-white"
+            >
               <CalendarCheck className="size-5" /> Book Free Demo
             </Button>
-            <Button href="/success-stories" variant="ghost" size="lg">
+            <Button
+              href="/success-stories"
+              variant="ghost"
+              size="lg"
+              className="text-white/80 hover:text-white"
+            >
               <PlayCircle className="size-5" /> Watch Success Stories
             </Button>
           </motion.div>
@@ -117,58 +136,78 @@ export function Hero() {
           >
             {STAT_ITEMS.map((s) => (
               <div key={s.label}>
-                <p className="text-2xl sm:text-3xl font-bold text-secondary font-display">
+                <p className="text-2xl sm:text-3xl font-bold text-white font-display">
                   <Counter value={s.value} suffix={s.suffix} decimals={s.decimals ?? 0} />
                 </p>
-                <p className="text-xs text-foreground/50 mt-1">{s.label}</p>
+                <p className="text-xs text-white/50 mt-1">{s.label}</p>
               </div>
             ))}
           </motion.div>
         </div>
 
-        {/* Right visual */}
+        {/* Right visual — orbit dashboard */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="relative h-[420px] sm:h-[480px] hidden sm:block"
+          className="relative h-[420px] sm:h-[480px] hidden sm:flex items-center justify-center"
         >
-          <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-secondary to-secondary/90 overflow-hidden shadow-2xl">
-            <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_30%_20%,var(--accent),transparent_55%)]" />
-            <div className="absolute top-6 left-6 right-6 flex items-center gap-2">
-              <span className="size-2.5 rounded-full bg-red-400" />
-              <span className="size-2.5 rounded-full bg-amber-400" />
-              <span className="size-2.5 rounded-full bg-emerald-400" />
-              <span className="ml-2 text-xs text-white/40 font-mono">student-dashboard.tsx</span>
-            </div>
-            <div className="absolute top-16 left-6 right-6 font-mono text-xs text-white/70 leading-relaxed space-y-1">
-              <p><span className="text-accent">const</span> career = <span className="text-accent">launch</span>(you);</p>
-              <p className="text-white/40">{"// mentor-reviewed, project by project"}</p>
-              <p><span className="text-accent">await</span> placementSupport.stayWithYou();</p>
-            </div>
+          {/* Rotating dashed orbit ring */}
+          <div className="absolute size-[340px] sm:size-[380px] rounded-full border border-dashed border-white/20 animate-spin-slow" />
+          <div className="absolute size-[260px] sm:size-[290px] rounded-full border border-white/10" />
+
+          {/* Center glass panel with placement-rate progress ring */}
+          <div className="glass-dark relative flex size-[220px] sm:size-[240px] flex-col items-center justify-center rounded-full shadow-2xl">
+            <svg viewBox="0 0 120 120" className="absolute inset-0 size-full -rotate-90">
+              <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="6" />
+              <motion.circle
+                cx="60"
+                cy="60"
+                r="52"
+                fill="none"
+                stroke="var(--accent)"
+                strokeWidth="6"
+                strokeLinecap="round"
+                strokeDasharray={2 * Math.PI * 52}
+                initial={{ strokeDashoffset: 2 * Math.PI * 52 }}
+                animate={{ strokeDashoffset: 2 * Math.PI * 52 * (1 - 0.95) }}
+                transition={{ duration: 1.6, delay: 0.6, ease: "easeOut" }}
+              />
+            </svg>
+            <p className="text-4xl font-bold text-white font-display">95%</p>
+            <p className="mt-1 text-xs text-white/60">Placement Rate</p>
           </div>
 
+          {/* Orbiting info chips */}
           <motion.div
-            className="absolute top-8 -left-4 glass rounded-xl p-4 shadow-xl animate-float"
+            className="glass-dark absolute top-4 left-2 sm:left-0 rounded-xl p-4 shadow-xl animate-float"
             style={{ animationDelay: "0.5s" }}
           >
-            <Code2 className="size-6 text-primary" />
-            <p className="text-xs font-semibold mt-2 text-secondary">8 Live Projects</p>
+            <Code2 className="size-6 text-accent" />
+            <p className="text-xs font-semibold mt-2 text-white">8 Live Projects</p>
           </motion.div>
 
           <motion.div
-            className="absolute bottom-24 -right-6 glass rounded-xl p-4 shadow-xl animate-float"
+            className="glass-dark absolute bottom-8 right-0 sm:-right-4 rounded-xl p-4 shadow-xl animate-float"
           >
-            <Trophy className="size-6 text-primary" />
-            <p className="text-xs font-semibold mt-2 text-secondary">₹15 LPA Highest CTC</p>
+            <Trophy className="size-6 text-accent" />
+            <p className="text-xs font-semibold mt-2 text-white">₹7 LPA Highest CTC</p>
           </motion.div>
 
           <motion.div
-            className="absolute bottom-4 left-10 glass rounded-xl px-4 py-3 shadow-xl animate-float"
+            className="glass-dark absolute top-10 right-2 sm:right-4 rounded-xl px-4 py-3 shadow-xl animate-float"
             style={{ animationDelay: "1s" }}
           >
-            <p className="text-xs text-foreground/60">Placement Rate</p>
-            <p className="text-lg font-bold text-primary">95%</p>
+            <Users className="size-6 text-accent" />
+            <p className="text-xs font-semibold mt-2 text-white">500+ Hiring Partners</p>
+          </motion.div>
+
+          <motion.div
+            className="glass-dark absolute bottom-2 left-4 sm:left-6 rounded-xl px-4 py-3 shadow-xl animate-float"
+            style={{ animationDelay: "1.6s" }}
+          >
+            <p className="text-xs text-white/60">Student Rating</p>
+            <p className="text-lg font-bold text-accent">4.9★</p>
           </motion.div>
         </motion.div>
       </div>

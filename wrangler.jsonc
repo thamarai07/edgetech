@@ -1,0 +1,5 @@
+{
+  "name": "claryzentech",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-08-20"
+}

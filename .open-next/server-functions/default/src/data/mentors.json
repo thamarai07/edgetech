@@ -1,0 +1,8 @@
+[
+  { "name": "Ananya Rao", "role": "Full Stack Mentor", "company": "Ex-Zoho", "image": "/images/mentors/ananya.jpg" },
+  { "name": "Karthik Subramaniam", "role": "Data Science Mentor", "company": "Ex-Accenture", "image": "/images/mentors/karthik.jpg" },
+  { "name": "Priya Menon", "role": "AI Mentor", "company": "Ex-IBM", "image": "/images/mentors/priya.jpg" },
+  { "name": "Rahul Verma", "role": "Cloud & DevOps Mentor", "company": "Ex-Wipro", "image": "/images/mentors/rahul.jpg" },
+  { "name": "Sneha Iyer", "role": "Product Design Mentor", "company": "Ex-Freshworks", "image": "/images/mentors/sneha.jpg" },
+  { "name": "Arvind Nair", "role": "Security Mentor", "company": "Ex-HCL", "image": "/images/mentors/arvind.jpg" }
+]

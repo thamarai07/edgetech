@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Sanjana R.",
+    "role": "Software Engineer at Infosys",
+    "course": "Full Stack Web Development",
+    "rating": 5,
+    "image": "/images/students/sanjana.jpg",
+    "quote": "I joined with zero coding background. My mentor never made me feel behind — we just kept building until things clicked. Six months later I had an offer letter in hand."
+  },
+  {
+    "name": "Mohammed Faizal",
+    "role": "Data Analyst at Wipro",
+    "course": "Data Science & Machine Learning",
+    "rating": 5,
+    "image": "/images/students/faizal.jpg",
+    "quote": "What stood out was how patient the mentors were with doubts. No question felt small. The projects on my resume are the exact reason I got shortlisted."
+  },
+  {
+    "name": "Keerthana V.",
+    "role": "UI/UX Designer at Freshworks",
+    "course": "UI/UX & Product Design",
+    "rating": 5,
+    "image": "/images/students/keerthana.jpg",
+    "quote": "The portfolio reviews genuinely changed how I think about design. Interviewers kept asking about my case studies — that's when I knew the program actually worked."
+  },
+  {
+    "name": "Arjun Balaji",
+    "role": "Cloud Engineer at TCS",
+    "course": "Cloud & DevOps Engineering",
+    "rating": 4,
+    "image": "/images/students/arjun.jpg",
+    "quote": "Hands-on labs from day one. I broke things, fixed them, and actually understood why. That confidence carried straight into my interviews."
+  },
+  {
+    "name": "Nithya Suresh",
+    "role": "AI Engineer at IBM",
+    "course": "AI & Generative AI Engineering",
+    "rating": 5,
+    "image": "/images/students/nithya.jpg",
+    "quote": "I was intimidated by AI before this. The mentors broke it down step by step until I was building my own RAG chatbot. Placement support followed up with me every single week."
+  },
+  {
+    "name": "Vikram Anand",
+    "role": "Mobile Developer at Cognizant",
+    "course": "Mobile App Development",
+    "rating": 5,
+    "image": "/images/students/vikram.jpg",
+    "quote": "Shipping my first real app to the Play Store felt unreal. The mentors treated us like future colleagues, not just students."
+  }
+]
